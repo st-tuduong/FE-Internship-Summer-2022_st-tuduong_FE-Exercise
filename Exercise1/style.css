@@ -58,7 +58,7 @@ input {
   margin-right: -20px;
 }
 
-.row > [class*=col-] {
+.row > [class*="col-"] {
   flex: 0 0 auto;
   padding-left: 10px;
   padding-right: 10px;
@@ -98,7 +98,7 @@ input {
   background-color: var(--primary-color);
 }
 
-.btn-warning{
+.btn-warning {
   border-radius: 56px;
   background-color: var(--primary-color);
   width: 175px;
@@ -114,7 +114,7 @@ input {
   font-size: var(--font-xs);
 }
 
-.badge-danger{
+.badge-danger {
   background-color: var(--secondary-color);
   color: var(--white);
 }
@@ -163,7 +163,7 @@ header {
   gap: 0 24px;
 }
 
-.action-link{
+.action-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,7 +194,7 @@ header {
   z-index: 1;
 }
 
-.banner-inner{
+.banner-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -228,11 +228,11 @@ header {
   align-items: center;
 }
 
-.icon-arrow{
+.icon-arrow {
   margin-right: 21px;
 }
 
-.banner-link span{
+.banner-link span {
   color: var(--white);
   font-size: var(--font-lg);
   font-weight: 700;
@@ -256,11 +256,11 @@ header {
   padding: 38px 88px 24px 240px;
 }
 
-.campaign-item{
+.campaign-item {
   display: flex;
 }
 
-.campaign-item img{
+.campaign-item img {
   width: 36px;
   height: 36px;
   display: flex;
@@ -273,19 +273,19 @@ header {
   font-size: 13px;
 }
 
-.campaign-content p{
-  color: #A8A8A8;
+.campaign-content p {
+  color: #a8a8a8;
   margin-top: 4px;
   font-size: var(--font-xs);
 }
 
 /* CSS Collection */
 
-.collection-list{
+.collection-list {
   margin-top: 48px;
 }
 
-.collection-item{
+.collection-item {
   position: relative;
   height: 359px;
 }
@@ -302,25 +302,25 @@ header {
   height: 100%;
 }
 
-.collection-item1{
+.collection-item1 {
   background-image: url(images/collection1.svg);
   background-size: cover;
   background-position: center;
 }
 
-.collection-item2{
+.collection-item2 {
   background-image: url(images/collection2.svg);
   background-size: cover;
   background-position: center;
 }
 
-.collection-item3{
+.collection-item3 {
   background-image: url(images/collection3.svg);
   background-size: cover;
   background-position: center;
 }
 
-.collection-content{
+.collection-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -336,7 +336,7 @@ header {
   padding: 56px 41px;
 }
 
-.collection-content h3{
+.collection-content h3 {
   color: var(--white);
   font-size: var(--font-lg);
   font-weight: 400;
@@ -344,86 +344,86 @@ header {
   min-height: 74px;
 }
 
-.collection-content span{
+.collection-content span {
   margin-bottom: 8px;
 }
 
-.collection-content a{
+.collection-content a {
   font-size: 13px;
   font-weight: 700;
 }
 
 /* CSS For You */
 
-.section-title{
+.section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 96px;
 }
 
-.section-title h3{
+.section-title h3 {
   font-size: var(--font-xl);
   font-weight: 300;
 }
 
-.section-title a{
-  border: 1px solid #C4C4C4;
+.section-title a {
+  border: 1px solid #c4c4c4;
 }
 
-.product-item{
+.product-item {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.product-item img{
+.product-item img {
   width: 100%;
   height: 385px;
 }
 
-.product-badge{
+.product-badge {
   position: absolute;
   top: 24px;
   left: 18px;
 }
 
-.product-item h4{
+.product-item h4 {
   margin-top: 16px;
   font-size: var(--font-md);
   font-weight: 300;
   color: var(--text-color);
 }
 
-.item-price{
+.item-price {
   display: flex;
   justify-content: space-between;
   font-weight: 400;
   font-size: var(--font-md-3);
 }
 
-.item-sale-price{
+.item-sale-price {
   color: var(--secondary-color);
 }
 
-.item-old-price{
+.item-old-price {
   color: #cecece;
 }
 
-.item-current-price{
+.item-current-price {
   color: var(--text-color);
 }
 
 /* CSS Shopify */
 
-.section-shopify{
-  background-color: #F7F7F7;
+.section-shopify {
+  background-color: #f7f7f7;
   padding: 48px 0px 54px 0px;
   margin-top: 61px;
   margin-bottom: 48px;
 }
 
-.section-shopify h3{
+.section-shopify h3 {
   color: var(--text-color);
   font-size: var(--font-xl);
   font-weight: 300;
@@ -431,31 +431,32 @@ header {
   margin-bottom: 50px;
 }
 
-.shopify-item{
+.shopify-item {
   display: flex;
   flex-direction: column;
 }
 
-.shopify-item img{
+.shopify-item img {
   width: 69px;
   height: 68px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   padding: 15px 16px;
   margin-bottom: 46px;
 }
 
-.shopify-item h4{
+.shopify-item h4 {
   color: var(--text-color);
   font-size: var(--font-md);
   font-weight: 700;
 }
 
-.img-payments, .shopify-item:nth-child(2) h4{
+.img-payments,
+.shopify-item:nth-child(2) h4 {
   color: var(--primary-color);
 }
 
-.shopify-item p{
+.shopify-item p {
   width: 242px;
   color: #808080;
   font-size: var(--font-sm);
@@ -465,7 +466,7 @@ header {
 
 /* CSS Products */
 
-.section-products h3{
+.section-products h3 {
   color: var(--text-color);
   font-size: var(--font-xl);
   font-weight: 300;
@@ -475,7 +476,7 @@ header {
 
 /* CSS Subscribe */
 
-.section-subscribe{
+.section-subscribe {
   background: url(images/subscribebg.svg);
   background-position: center;
   background-size: cover;
@@ -497,42 +498,42 @@ header {
   opacity: 0.7;
 }
 
-.subscribe-list{
+.subscribe-list {
   position: absolute;
   z-index: 2;
   display: flex;
   align-items: center;
 }
 
-.subscribe-list h3{
+.subscribe-list h3 {
   color: var(--white);
   font-size: var(--font-lg);
   font-weight: 400;
   margin: 60px 0px;
 }
 
-.form-subscribe{
+.form-subscribe {
   display: flex;
   justify-content: space-between;
   gap: 0 40px;
 }
 
-.form-input{
+.form-input {
   width: 351px;
   height: 48px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 61px;
   padding: 14px 23px;
   font-size: 13px;
   color: var(--text-color);
 }
 
-.form-input::placeholder{
-  color: #ABABAB;
+.form-input::placeholder {
+  color: #ababab;
   font-family: var(--font-family-primary);
 }
 
-.form-subscribe button{
+.form-subscribe button {
   color: var(--text-color);
   font-family: var(--font-family-primary);
   font-weight: 700;
@@ -540,26 +541,26 @@ header {
 
 /* CSS Footer */
 
-.section-footer{
+.section-footer {
   background-color: var(--primary-color);
 }
 
-.footer-top{
+.footer-top {
   padding: 50px 0;
   display: flex;
 }
 
-.footer-left a{
+.footer-left a {
   display: flex;
   align-items: center;
   font-size: 19px;
 }
 
-.footer-left img:first-child{
+.footer-left img:first-child {
   margin-right: 22px;
 }
 
-.footer-left p{
+.footer-left p {
   width: 373px;
   height: 60px;
   font-size: var(--font-sm);
@@ -568,7 +569,7 @@ header {
   margin: 32px 170px 56px 0px;
 }
 
-.social-list{
+.social-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -576,51 +577,51 @@ header {
   height: 17px;
 }
 
-.social-item i{
+.social-item i {
   color: var(--white);
 }
 
-.footer-list{
+.footer-list {
   display: flex;
 }
 
-.footer-item{
+.footer-item {
   display: flex;
   flex-direction: column;
 }
 
-.footer-item:first-child{
+.footer-item:first-child {
   margin-right: 87px;
 }
 
-.footer-item:nth-child(2){
+.footer-item:nth-child(2) {
   margin-right: 52px;
 }
 
-.options-list{
+.options-list {
   display: flex;
   flex-direction: column;
   gap: 15px 0;
 }
 
-.option-title{
+.option-title {
   color: var(--white);
   font-weight: 700;
   font-size: var(--font-md);
   margin-bottom: 19px;
 }
 
-.option-item a{
+.option-item a {
   color: var(--white);
   font-size: var(--font-sm);
   font-weight: 400;
 }
 
-.footer-bottom{
+.footer-bottom {
   border-top: 1px solid #ffffff;
 }
 
-.copyright{
+.copyright {
   color: var(--white);
   text-align: center;
   font-weight: 400;
