@@ -45,6 +45,7 @@ input {
 
 .container {
   max-width: 1152px;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -502,10 +503,12 @@ header {
 
 .subscribe-list {
   position: relative;
+  height: 100%;
 }
 
 .subscribe-list .row{
   align-items: center;
+  height: 100%;
 }
 
 .subscribe-list h3 {
