@@ -79,7 +79,7 @@ input {
 
 .btn {
   display: inline-block;
-  width: 144px;
+  width: 161px;
   height: 49px;
   padding: 14px 20px;
   font-weight: 700;
@@ -303,21 +303,23 @@ header {
 }
 
 .collection-item1 {
-  background-image: url(images/collection1.svg);
+  background: url(images/collection1.png);
   background-size: cover;
   background-position: center;
 }
 
 .collection-item2 {
-  background-image: url(images/collection2.svg);
+  background: url(images/collection2.png);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .collection-item3 {
-  background-image: url(images/collection3.svg);
+  background: url(images/collection3.png);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .collection-content {
