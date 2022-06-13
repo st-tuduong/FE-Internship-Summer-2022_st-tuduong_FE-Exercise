@@ -90,12 +90,11 @@ input {
 }
 
 .btn-primary {
-  background-color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .btn-secondary {
-  padding: 14px 30px;
-  background-color: var(--primary-color);
+  background-color: var(--white);
 }
 
 .btn-warning {
@@ -352,7 +351,6 @@ header {
 
 .collection-content a {
   font-size: 13px;
-  font-weight: 700;
 }
 
 /* CSS For You */
