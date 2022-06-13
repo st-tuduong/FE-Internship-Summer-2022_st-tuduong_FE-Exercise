@@ -45,24 +45,20 @@ input {
 
 .container {
   max-width: 1152px;
-  width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
-  position: relative;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .row > [class*="col-"] {
   flex: 0 0 auto;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: 20px;
 }
 
 .col-3 {
@@ -79,8 +75,7 @@ input {
 
 .btn {
   display: inline-block;
-  width: 161px;
-  height: 49px;
+  height: 48px;
   padding: 14px 20px;
   font-weight: 700;
   color: var(--text-color);
@@ -175,7 +170,7 @@ header {
   background-size: cover;
   height: 800px;
   position: relative;
-  width: 100%;
+  margin-bottom: 48px;
 }
 
 .banner-overlay {
@@ -252,7 +247,7 @@ header {
 .campaign-list {
   display: flex;
   justify-content: space-between;
-  padding: 38px 88px 24px 240px;
+  padding: 38px 88px 24px 277px;
 }
 
 .campaign-item {
@@ -279,6 +274,10 @@ header {
 }
 
 /* CSS Collection */
+
+.section-collection{
+  margin-bottom: 96px;
+}
 
 .collection-list {
   margin-top: 48px;
@@ -326,14 +325,13 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
   z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  align-items: flex-start;
   padding: 56px 41px;
 }
 
@@ -355,11 +353,15 @@ header {
 
 /* CSS For You */
 
+.section-foryou{
+  margin-bottom: 48px;
+}
+
 .section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 96px;
+  margin-bottom: 39px;
 }
 
 .section-title h3 {
@@ -378,8 +380,10 @@ header {
 }
 
 .product-item img {
+  display: block;
   width: 100%;
   height: 385px;
+  margin-bottom: 15px;
 }
 
 .product-badge {
@@ -389,7 +393,6 @@ header {
 }
 
 .product-item h4 {
-  margin-top: 16px;
   font-size: var(--font-md);
   font-weight: 300;
   color: var(--text-color);
@@ -419,7 +422,6 @@ header {
 .section-shopify {
   background-color: #f7f7f7;
   padding: 48px 0px 54px 0px;
-  margin-top: 61px;
   margin-bottom: 48px;
 }
 
@@ -451,10 +453,11 @@ header {
   font-weight: 700;
 }
 
-.img-payments,
 .shopify-item:nth-child(2) h4 {
   color: var(--primary-color);
 }
+
+
 
 .shopify-item p {
   width: 242px;
@@ -466,12 +469,15 @@ header {
 
 /* CSS Products */
 
-.section-products h3 {
-  color: var(--text-color);
+.section-products{
+  margin-bottom: 48px;
+}
+
+.section-title-product h3{
   font-size: var(--font-xl);
   font-weight: 300;
-  text-align: center;
   margin-bottom: 39px;
+  text-align: center;
 }
 
 /* CSS Subscribe */
@@ -482,26 +488,23 @@ header {
   background-size: cover;
   height: 241px;
   position: relative;
-  margin-top: 62px;
+  display: flex;
+  align-items: center;
 }
 
-.section-subscribe::after {
-  content: "";
+.subscribe-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   height: 100%;
   width: 100%;
-  z-index: 1;
   background: linear-gradient(90deg, #000000 33.28%, rgba(0, 0, 0, 0) 94.05%);
   opacity: 0.7;
 }
 
 .subscribe-list {
-  position: absolute;
-  z-index: 2;
-  display: flex;
+  position: relative;
+}
+
+.subscribe-list .row{
   align-items: center;
 }
 
@@ -514,7 +517,6 @@ header {
 
 .form-subscribe {
   display: flex;
-  justify-content: space-between;
   gap: 0 40px;
 }
 
@@ -548,6 +550,7 @@ header {
 .footer-top {
   padding: 50px 0;
   display: flex;
+  justify-content: space-around;
 }
 
 .footer-left a {
