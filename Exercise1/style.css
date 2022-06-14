@@ -45,6 +45,7 @@ input {
 
 .container {
   max-width: 1172px;
+  width: 100%;
   padding: 0 10px;
   margin: 0 auto;
 }
@@ -567,7 +568,7 @@ header {
 }
 
 .option-item{
-  line-height: 2;
+  margin-bottom: 20px;
 }
 
 .option-item a {
