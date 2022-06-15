@@ -1,22 +1,22 @@
 .badge {
-    width: 55px;
-    height: 30px;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-weight: map-get($colors, weight700);
-    font-size: map-get($font-size, font-xs);
-  }
-  
-  .badge-danger {
-    background-color: map-get($colors, secondary-color);
-    color: map-get($colors, white);
-  }
+  width: 55px;
+  height: 30px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: map-get($colors, weight700);
+  font-size: map-get($font-size, font-xs);
+}
 
-  @include responsive-mobile {
-    .badge {
-      width: 32px;
-      height: 16px;
-      padding: 2px 5px;
-      font-size: 8px;
-    }
+.badge-danger {
+  background-color: map-get($colors, secondary-color);
+  color: map-get($colors, white);
+}
+
+@include responsive-mobile {
+  .badge {
+    width: 32px;
+    height: 16px;
+    padding: 2px 5px;
+    font-size: 8px;
   }
+}

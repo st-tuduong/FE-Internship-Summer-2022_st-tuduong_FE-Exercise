@@ -5,7 +5,7 @@
   height: 800px;
   margin-bottom: 48px;
 
-  &::after{
+  &::after {
     content: "";
     background: linear-gradient(
       180deg,
@@ -277,14 +277,13 @@
 
   .subscribe-list {
     position: relative;
-    z-index: 2;  
+    z-index: 2;
   }
 
   .subscribe-list h3 {
     color: map-get($colors, white);
     font-weight: map-get($font-weight, weight400);
   }
-
 }
 
 .form-subscribe {
@@ -310,7 +309,6 @@
 // Responsive
 
 @include responsive-mobile {
-
   //Banner
   .section-banner {
     background: url(../images/bgmobile.png);
@@ -319,7 +317,7 @@
     .banner-content {
       padding: 271px 80px 320px 24px;
     }
-  
+
     h2 {
       width: 274px;
       font-size: 48px;
@@ -330,15 +328,15 @@
         width: 32px;
         height: 32px;
       }
-    
+
       span {
         font-size: map-get($font-size, font-sm);
-      }  
+      }
     }
 
     .banner-campaign {
       display: none;
-    }  
+    }
   }
 
   // Collection
@@ -355,13 +353,13 @@
 
     .collection-content {
       padding: 20px 26px 16px 16px;
-  
+
       h4 {
         font-size: map-get($font-size, font-sm);
         margin-bottom: 8px;
         height: 40px;
       }
-    }  
+    }
   }
 
   // Foryou
@@ -387,7 +385,7 @@
       margin-bottom: 4px;
       height: 227px;
     }
-  
+
     h4 {
       font-size: map-get($font-size, font-xs);
       font-weight: map-get($font-weight, weight300);
@@ -396,53 +394,53 @@
 
     .item-price {
       font-size: 10px;
-    }  
+    }
   }
-// Shopify
-.section-shopify {
-  padding: 24px;
+  // Shopify
+  .section-shopify {
+    padding: 24px;
 
-  h3 {
-    font-size: map-get($font-size, font-md-2);
-    margin-bottom: 36px;
-  }
+    h3 {
+      font-size: map-get($font-size, font-md-2);
+      margin-bottom: 36px;
+    }
 
-  .shopify-item {
-    display: block;
-    margin-bottom: 16px;
-
-    img {
-      float: left;
-      width: 68px;
-      height: 68px;
+    .shopify-item {
+      display: block;
       margin-bottom: 16px;
-      margin-right: 16px;
-    }    
 
-    .shopify-title {
-      font-size: 12px;
-      margin-bottom: 8px;
-
-      &:hover {
-        color: map-get($colors, primary-color);
+      img {
+        float: left;
+        width: 68px;
+        height: 68px;
+        margin-bottom: 16px;
+        margin-right: 16px;
       }
-    } 
-    
-    .shopify-content {
-      font-size: 10px;
-      font-weight: map-get($font-weight, weight400);
-    }    
+
+      .shopify-title {
+        font-size: 12px;
+        margin-bottom: 8px;
+
+        &:hover {
+          color: map-get($colors, primary-color);
+        }
+      }
+
+      .shopify-content {
+        font-size: 10px;
+        font-weight: map-get($font-weight, weight400);
+      }
+    }
   }
-}
 
-// Products
-.section-products h3 {
-  text-align: left;
-  font-size: map-get($font-size, font-md);
-  margin-bottom: 16px;
-}
+  // Products
+  .section-products h3 {
+    text-align: left;
+    font-size: map-get($font-size, font-md);
+    margin-bottom: 16px;
+  }
 
-// Subscribe
+  // Subscribe
   .subscribe-list h3 {
     font-size: map-get($font-size, font-sm);
     width: 200px;
@@ -460,4 +458,3 @@
     }
   }
 }
-

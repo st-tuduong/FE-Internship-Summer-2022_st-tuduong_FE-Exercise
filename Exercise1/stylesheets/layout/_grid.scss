@@ -14,17 +14,16 @@
     flex: 0 0 auto;
     padding-left: 10px;
     padding-right: 10px;
-  }  
+  }
 }
 
 @for $i from 1 through 12 {
   .col-#{$i} {
-    width: calc(($i/12)*100%);
+    width: calc(($i/12) * 100%);
   }
 }
 
 @include responsive-mobile {
-
   .row {
     margin: 0 -4px;
 
@@ -32,12 +31,12 @@
       flex: 0 0 auto;
       padding-left: 4px;
       padding-right: 4px;
-    }  
+    }
   }
 
   @for $i from 1 through 12 {
     .col-sm-#{$i} {
-      width: calc(($i/12)*100%);
+      width: calc(($i/12) * 100%);
     }
   }
-  }
+}

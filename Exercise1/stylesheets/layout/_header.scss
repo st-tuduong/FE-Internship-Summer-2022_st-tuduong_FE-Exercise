@@ -18,7 +18,7 @@ header {
   a {
     display: flex;
     align-items: center;
-    font-size: 19px;  
+    font-size: 19px;
   }
 
   svg {
@@ -27,7 +27,7 @@ header {
 
   .logo-title {
     font-size: 19px;
-    color: map-get($colors, white);  
+    color: map-get($colors, white);
   }
 }
 
@@ -37,9 +37,9 @@ header {
 
   .nav-link {
     color: map-get($colors, primary-color);
-    font-size: map-get($font-size , font-md-2);
+    font-size: map-get($font-size, font-md-2);
     font-weight: map-get($font-weight, weight700);
-  }  
+  }
 }
 
 .nav-action {
@@ -50,7 +50,6 @@ header {
 // Responsive
 
 @include responsive-mobile {
-
   header {
     width: 100%;
     background-color: map-get($colors, white);

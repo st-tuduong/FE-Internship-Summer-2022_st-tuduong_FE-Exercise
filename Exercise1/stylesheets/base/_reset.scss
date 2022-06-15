@@ -7,7 +7,7 @@
 body {
   color: map-get($colors, text-color);
   font-family: $font-family-primary;
-  font-size: map-get($font-size, font-md );
+  font-size: map-get($font-size, font-md);
   overflow-x: hidden;
 }
 
