@@ -1,0 +1,36 @@
+@import '../abstracts/mixins';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: map-get($colors, text-color);
+  font-family: $font-family-primary;
+  font-size: map-get($font-size, font-md );
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  outline: 0;
+  border: 0;
+}
+
+
+// Responsive 
+
+@include ResponsiveForMobile {
+  body {
+    overflow-x: hidden;
+  }
+}

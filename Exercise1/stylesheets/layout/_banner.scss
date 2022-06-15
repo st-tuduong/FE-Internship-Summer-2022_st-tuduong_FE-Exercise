@@ -1,0 +1,122 @@
+.section-banner {
+  position: relative;
+  background: url(../images/bg.png);
+  background-size: cover;
+  height: 800px;
+  margin-bottom: 48px;
+}
+
+.section-banner::after {
+  content: "";
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.banner-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content {
+  padding-left: 96px;
+  padding-top: 222px;
+}
+
+.banner-content h2 {
+  color: map-get($colors, white);
+  font-size: map-get($font-size, font-xxl);
+  font-weight: map-get($font-weight, weight700);
+  width: 403px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.banner-content span {
+  color: map-get($colors, primary-color);
+}
+
+.banner-link {
+  display: flex;
+  align-items: center;
+}
+
+.icon-arrow {
+  margin-right: 21px;
+}
+
+.banner-link span {
+  color: map-get($colors, white);
+  font-size: map-get($colors, font-lg);
+  font-weight: map-get($font-weight, weight700);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.banner-campaign {
+  width: 1100px;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  background-color: map-get($colors, white);
+  border-radius: 0px 70px 0px 0px;
+}
+
+.campaign-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 38px 88px 24px 277px;
+}
+
+.campaign-item {
+  display: flex;
+
+  img {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 21px;
+  }
+}
+
+.campaign-content h3 {
+  font-size: 13px;
+}
+
+.campaign-content p {
+  color: #a8a8a8;
+  margin-top: 4px;
+  font-size: map-get($font-size, font-xs);
+}
+
+// Responsive
+
+@include ResponsiveForMobile {
+  .section-banner {
+    height: 740px;
+  }
+  
+  .banner-campaign {
+    display: none;
+  }
+  
+  .banner-content {
+    padding-top: 271px;
+    padding-left: 24px;
+  }
+
+  .banner-content h2 {
+    width: 274px;
+    font-size: 48px;
+  }
+}

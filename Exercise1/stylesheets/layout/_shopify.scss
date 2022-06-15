@@ -1,0 +1,51 @@
+.section-shopify {
+  background-color: #f7f7f7;
+  padding: 48px 0px 54px 0px;
+  margin-bottom: 48px;
+
+  h3 {
+    color: map-get($colors, text-color);
+    font-size: map-get($font-size, font-xl);
+    font-weight: map-get($font-weight, weight300);
+    text-align: center;
+    margin-bottom: 50px;
+  }  
+}
+
+.shopify-item {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 69px;
+    height: 68px;
+    background: map-get($colors, white);
+    border-radius: 10px;
+    padding: 15px 16px;
+    margin-bottom: 46px;
+  }
+  
+  .shopify-title {
+    color: map-get($colors, text-color);
+    font-size: map-get($colors, font-md);
+    font-weight: map-get($font-weight, weight700);
+  }
+  
+  .shopify-title:hover {
+    color: map-get($colors, primary-color);
+  }  
+}
+
+.shopify-content {
+  width: 242px;
+  color: #808080;
+  font-size: map-get($font-size, font-sm);
+  font-weight: map-get($font-weight, weight400);
+  margin-top: 14px;
+}
+
+@include ResponsiveForMobile {
+  .section-shopify h3 {
+    font-size: map-get($font-size, font-md-2);
+  }
+}
