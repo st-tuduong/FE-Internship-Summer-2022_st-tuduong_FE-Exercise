@@ -1,5 +1,16 @@
-@mixin ResponsiveForMobile {
-  @media only screen and (max-width: 576px) {
+$mobile: 576px;
+@mixin responsive-mobile {
+  @media only screen and (max-width: $mobile) {
     @content;
   }
+}
+
+@mixin position($position: null,$top: null, $left: null, $right: null, $z-index: null, $width: null, $height: null) {
+  position: $position;
+  top: $top;
+  left: $left;
+  right: $right;
+  z-index: $z-index;
+  width: $width;
+  height: $height;
 }

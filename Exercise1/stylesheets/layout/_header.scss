@@ -49,7 +49,7 @@ header {
 
 // Responsive
 
-@include ResponsiveForMobile {
+@include responsive-mobile {
 
   header {
     width: 100%;
