@@ -1,3 +1,4 @@
+@import '../abstracts/mixins';
 .section-footer {
   background-color: map-get($colors, primary-color);
   color: map-get($colors, white);
@@ -78,4 +79,42 @@
   font-weight: 400;
   font-size: map-get($font-size, font-xs);
   padding: 24px 0px;
+}
+
+@include ResponsiveForMobile {
+  .footer-top {
+    display: block;
+    padding: 48px 0;
+  }
+
+  .footer-left a {
+    margin-bottom: 24px;
+  }
+
+  .footer-left p {
+    width: 327px;
+    height: 64px;
+    margin-bottom: 48px;
+  }
+
+  .social-list {
+    display: none;
+  }
+
+  .footer-list {
+    display: block;
+  }
+
+  .option-title {
+    margin-bottom: 16px;
+  }
+
+  .option-item {
+    margin-bottom: 5px;
+
+    a {
+      font-size: 12px;
+    }
+  }
+
 }

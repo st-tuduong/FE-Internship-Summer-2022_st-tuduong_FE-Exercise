@@ -21,7 +21,7 @@ header {
     font-size: 19px;  
   }
 
-  img {
+  svg {
     margin-right: 22px;
   }
 
@@ -57,8 +57,21 @@ header {
     padding: 20px 0;
   }
 
-  .nav-brand a{
-    color: map-get($colors, text-color);
+  .nav-brand {
+    svg path {
+      fill: map-get($colors, text-color);
+    }
+
+    .logo-title {
+      color: map-get($colors, text-color);
+      font-size: map-get($font-size, font-md-2);
+    }
+  }
+
+  .action-link {
+    svg path {
+      fill: map-get($colors, text-color);
+    }
   }
 
   .nav-list {

@@ -20,3 +20,11 @@
 .btn-secondary {
   background-color: map-get($colors, white)
 }
+
+@include ResponsiveForMobile {
+  .btn-secondary {
+    height: 20px;
+    padding: 3px 9px;
+    font-size: 10px;
+  }
+}

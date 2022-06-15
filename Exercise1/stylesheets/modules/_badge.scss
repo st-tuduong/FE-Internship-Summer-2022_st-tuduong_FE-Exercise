@@ -1,3 +1,4 @@
+@import '../abstracts/mixins';
 .badge {
     width: 55px;
     height: 30px;
@@ -10,4 +11,13 @@
   .badge-danger {
     background-color: map-get($colors, secondary-color);
     color: map-get($colors, white);
+  }
+
+  @include ResponsiveForMobile {
+    .badge {
+      width: 32px;
+      height: 16px;
+      padding: 2px 5px;
+      font-size: 8px;
+    }
   }
