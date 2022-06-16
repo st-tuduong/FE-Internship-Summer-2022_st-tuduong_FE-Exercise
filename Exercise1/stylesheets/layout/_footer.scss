@@ -79,7 +79,7 @@
   padding: 24px 0px;
 }
 
-@include responsive-mobile {
+@include responsive-below($mobile) {
   .footer-top {
     display: block;
     padding: 48px 0;

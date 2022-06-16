@@ -308,7 +308,7 @@
 
 // Responsive
 
-@include responsive-mobile {
+@include responsive-below($mobile) {
   //Banner
   .section-banner {
     background: url(../images/bgmobile.png);

@@ -49,7 +49,7 @@ header {
 
 // Responsive
 
-@include responsive-mobile {
+@include responsive-below($mobile) {
   header {
     width: 100%;
     background-color: map-get($colors, white);

@@ -17,13 +17,9 @@
   }
 }
 
-@for $i from 1 through 12 {
-  .col-#{$i} {
-    width: calc(($i/12) * 100%);
-  }
-}
+@include build-grid('');
 
-@include responsive-mobile {
+@include responsive-below($mobile) {
   .row {
     margin: 0 -4px;
 
@@ -34,9 +30,5 @@
     }
   }
 
-  @for $i from 1 through 12 {
-    .col-sm-#{$i} {
-      width: calc(($i/12) * 100%);
-    }
-  }
+  @include build-grid('sm');
 }

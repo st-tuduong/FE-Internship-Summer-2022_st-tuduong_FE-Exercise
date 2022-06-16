@@ -91,7 +91,7 @@ input {
   width: 100%;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .row {
     margin: 0 -4px;
   }
@@ -181,7 +181,7 @@ header {
   gap: 0 24px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   header {
     width: 100%;
     background-color: #ffffff;
@@ -278,7 +278,7 @@ header {
   padding: 24px 0px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .footer-top {
     display: block;
     padding: 48px 0;
@@ -330,7 +330,7 @@ header {
   background-color: #ffffff;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .btn-secondary {
     height: 20px;
     padding: 3px 9px;
@@ -350,7 +350,7 @@ header {
   color: #ffffff;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .badge {
     width: 32px;
     height: 16px;
@@ -648,7 +648,7 @@ header {
   font-family: "Poppins", sans-serif;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .section-banner {
     background: url(../images/bgmobile.png);
     height: 740px;

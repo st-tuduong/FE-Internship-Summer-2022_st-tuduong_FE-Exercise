@@ -21,7 +21,7 @@
   background-color: map-get($colors, white);
 }
 
-@include responsive-mobile {
+@include responsive-below($mobile) {
   .btn-secondary {
     height: 20px;
     padding: 3px 9px;

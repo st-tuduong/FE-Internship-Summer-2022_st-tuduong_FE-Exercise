@@ -1,7 +1,9 @@
 $mobile: 576px;
-@mixin responsive-mobile {
-  @media only screen and (max-width: $mobile) {
-    @content;
+@mixin responsive-below($breakpoint) {
+  @if ($breakpoint == $mobile) {
+    @media only screen and (max-width: #{$breakpoint - 1px}) {
+      @content;  
+    }
   }
 }
 
@@ -13,4 +15,20 @@ $mobile: 576px;
   z-index: $z-index;
   width: $width;
   height: $height;
+}
+
+$grid-col: 12;
+@mixin build-grid($size) {
+  @for $i from 1 through $grid-col {
+    @if ($size != "") {
+      .col-#{$size}-#{$i} {
+        width: percentage($i / $grid-col);
+      }
+    } 
+    @else {
+      .col-#{$i} {
+        width: percentage($i / $grid-col);
+      }
+    }
+  }
 }
