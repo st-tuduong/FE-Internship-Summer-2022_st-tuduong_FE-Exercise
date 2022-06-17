@@ -1,0 +1,34 @@
+$mobile: 576px;
+@mixin responsive-below($breakpoint) {
+  @if ($breakpoint == $mobile) {
+    @media only screen and (max-width: #{$breakpoint - 1px}) {
+      @content;  
+    }
+  }
+}
+
+@mixin position($position: null,$top: null, $left: null, $right: null, $z-index: null, $width: null, $height: null) {
+  position: $position;
+  top: $top;
+  left: $left;
+  right: $right;
+  z-index: $z-index;
+  width: $width;
+  height: $height;
+}
+
+$grid-col: 12;
+@mixin build-grid($size) {
+  @for $i from 1 through $grid-col {
+    @if ($size != "") {
+      .col-#{$size}-#{$i} {
+        width: percentage($i / $grid-col);
+      }
+    } 
+    @else {
+      .col-#{$i} {
+        width: percentage($i / $grid-col);
+      }
+    }
+  }
+}

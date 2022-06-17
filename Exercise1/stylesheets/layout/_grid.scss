@@ -1,0 +1,34 @@
+.container {
+  max-width: 1172px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  & > [class*="col-"] {
+    flex: 0 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@include build-grid('');
+
+@include responsive-below($mobile) {
+  .row {
+    margin: 0 -4px;
+
+    & > [class*="col-"] {
+      flex: 0 0 auto;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+
+  @include build-grid('sm');
+}

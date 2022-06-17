@@ -1,0 +1,83 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 0;
+  z-index: 100;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-brand {
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+  }
+
+  svg {
+    margin-right: 22px;
+  }
+
+  .logo-title {
+    font-size: 19px;
+    color: map-get($colors, white);
+  }
+}
+
+.nav-list {
+  display: flex;
+  gap: 0 96px;
+
+  .nav-link {
+    color: map-get($colors, primary-color);
+    font-size: map-get($font-size, font-md-2);
+    font-weight: map-get($font-weight, weight700);
+  }
+}
+
+.nav-action {
+  display: flex;
+  gap: 0 24px;
+}
+
+// Responsive
+
+@include responsive-below($mobile) {
+  header {
+    width: 100%;
+    background-color: map-get($colors, white);
+    padding: 20px 0;
+  }
+
+  .nav-brand {
+    svg path {
+      fill: map-get($colors, text-color);
+    }
+
+    .logo-title {
+      color: map-get($colors, text-color);
+      font-size: map-get($font-size, font-md-2);
+    }
+  }
+
+  .action-link {
+    svg path {
+      fill: map-get($colors, text-color);
+    }
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
+}
