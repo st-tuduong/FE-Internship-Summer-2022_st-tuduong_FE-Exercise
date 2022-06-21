@@ -7,11 +7,20 @@ header {
   z-index: 100;
 }
 
+.header {
+  background-color: bisque;
+  padding: 30px 0;
+}
+
 .nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+.nav-cart {
+  @extend .nav-menu
 }
 
 .nav-brand {
@@ -80,4 +89,9 @@ header {
   .search {
     display: none;
   }
+}
+
+.action-list .qty {
+  color: #ffffff;
+  font-size: 16px;
 }
