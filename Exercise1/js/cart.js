@@ -1,49 +1,52 @@
 function renderListCart() {
-  var listCart = getLocal(lskey.cart);
+  var listCart = getStorageItem(lsShopping.cart);
   var html = "";
   var count = 0;
   if (listCart) {
-    var cart = JSON.parse(listCart);
-    Object.keys(cart).map((key, index) => {
-      var price = cart[key]["price"].slice(1);
-      var qty = cart[key]["qty"];
+    Object.keys(listCart).map(function(key) {
+      var price = listCart[key].price.slice(1);
+      var qty = listCart[key].qty;
       count = price * qty;
       var total = count.toFixed(2);
       html += `
           <tr>
           <td class="cart-product">
-            <img src="${cart[key]["img"]}" alt="">
+            <img src="${listCart[key].img}" alt="">
           </td>
           <td class="cart-description">
-            <h4><a href="#">${cart[key]["name"]}</a></h4>
+            <h4><a href="#">${listCart[key].name}</a></h4>
           </td>
           <td class="cart-price">
-            <p>${cart[key]["price"]}</p>
+            <p>$${listCart[key].price}</p>
           </td>
           <td class="cart-quantity">
             <div class="cart-quantitybutton">
-              <button id="${key}" class="quantity-down" onclick=decreaseQty()> - </button>
-                <input class="quantity-input" value="${cart[key]["qty"]}">
-              <button id="${key}" class="quantity-up")> + </button>
+              <button id="${listCart[key].id}" class="quantity-down"> - </button>
+                <input class="quantity-input" value="${listCart[key].qty}">
+              <button id="${listCart[key].id}" class="quantity-up"> + </button>
             </div>
           </td>
           <td class="cart-total">
             <p class="cart-totalprice">$${total}</p>
           </td>
           <td class="cart-delete">
-            <button id="${key}" class="quantity-delete"><i class="fa fa-times"></i></button>
+            <button id="${listCart[key].id}" class="quantity-delete"><i class="fa fa-times"></i></button>
           </td>
         </tr>`;
-    });
+    })
     document.querySelector("tbody").innerHTML = html;
     var btnIncrease = document.querySelectorAll(".quantity-up");
     for (i = 0; i < btnIncrease.length; i++) {
-      btnIncrease[i].addEventListener("click", increaseQty);
+      btnIncrease[i].addEventListener("click", function(e) {
+        doChangeItemQuantity(this, true)
+      });
     }
 
     var btnDecrease = document.querySelectorAll(".quantity-down");
     for (i = 0; i < btnDecrease.length; i++) {
-      btnDecrease[i].addEventListener("click", decreaseQty);
+      btnDecrease[i].addEventListener("click",  function(e) {
+        doChangeItemQuantity(this, false)
+      });
     }
 
     var btnDelete = document.querySelectorAll(".quantity-delete");
@@ -54,80 +57,31 @@ function renderListCart() {
 }
 renderListCart();
 
-function increaseQty(e) {
-  var cart = e.target.parentElement.parentElement.parentElement;
-  var id = cart.querySelector(".quantity-up").getAttribute("id");
-  var qty = cart.querySelector(".quantity-input").getAttribute("value");
-  var price = cart.querySelector(".cart-price p").textContent.slice(1);
-  qty = parseInt(qty) + 1;
-  var count = 0;
-  count = price * qty;
-  var total = count.toFixed(2);
-  cart.querySelector(".cart-totalprice").innerHTML = "$" + total;
-  cart.querySelector(".quantity-input").setAttribute("value", qty);
+function doChangeItemQuantity(btn, isIncreased) {
+  var id = btn.id
+  var listCart = getStorageItem(lsShopping.cart);
+  var cartItem = listCart[id]
+  var qty = cartItem.qty
+  var price = cartItem.price.slice(1);
 
-  var product = JSON.parse(getLocal(lskey.cart));
-  Object.keys(product).map(function (key, index) {
-    if (key == id) {
-      product[key].qty += 1;
-    }
-  });
-  saveLocal(lskey.cart, product);
+  if (isIncreased) {
+    qty = parseInt(qty) + 1;
+  } else {
+    qty = parseInt(qty) - 1;
+  }
+  var total = (price * qty).toFixed(2);
+  document.querySelector(".cart-totalprice").innerHTML = "$" + total;
+  document.querySelector(".quantity-input").setAttribute("value", qty);
+  listCart[id].qty = qty;
+  setStorageItem(lsShopping.cart, listCart);
 }
 
-function decreaseQty(e) {
-  var cart = e.target.parentElement.parentElement.parentElement;
-  var id = cart.querySelector(".quantity-down").getAttribute("id");
-  var qty = cart.querySelector(".quantity-input").getAttribute("value");
-  var price = cart.querySelector(".cart-price p").textContent.slice(1);
-  qty = parseInt(qty) - 1;
-  count = price * qty;
-  var total = count.toFixed(2);
-  cart.querySelector(".cart-totalprice").innerHTML = "$" + total;
-  cart.querySelector(".quantity-input").setAttribute("value", qty);
-
-  var product = JSON.parse(getLocal(lskey.cart));
-  cart[id];
-  Object.keys(product).map(function (key, index) {
-    if (key == id) {
-      product[key].qty -= 1;
-    }
-  });
-  saveLocal(lskey.cart, product);
-}
-
-function removeProduct(e) {
-  console.log(this);
-  var cart = e.target.parentElement.parentElement.parentElement;
-  var id = cart.querySelector(".quantity-delete").getAttribute("id");
-
-  var product = JSON.parse(getLocal(lskey.cart));
-  if (product) {
-    Object.keys(product).map(function (key, index) {
-      if (key == id) {
-        delete product[key];
-        cart.parentNode.removeChild(cart);
-      }
-    });
-    saveLocal(lskey.cart, product);
+function removeProduct(id) {
+  var id = this.id
+  var listCart = getStorageItem(lsShopping.cart);
+  if(listCart[id]) {
+    delete listCart[id]
+   this.closest("tr").remove();
+    setStorageItem(lsShopping.cart, listCart)
   }
 }
-
-// function totalCart() {
-//   var total = 0;
-//   var totalCart = document.querySelector('.sub-total span').textContent.slice(1);
-//   var pro = JSON.parse(getLocal(lskey.cart))
-//   if(pro) {
-//     Object.keys(pro).map((key, value) => {
-//       total += pro[key]['price'];
-//       console.log(total)
-//     });
-//   }
-//   saveLocal(lskey.cart, pro)
-//   document.querySelector('.sub-total span').innerHTML = "$" +  total
-// }
-
-
-increaseQty();
-decreaseQty();
-// totalCart()

@@ -1,12 +1,15 @@
-var lskey = {
+var lsShopping = {
   product: 'product',
   cart: 'cart'
 }
 
-function getLocal(key) {
-  return localStorage.getItem(key) ? localStorage.getItem(key) : []
+function getStorageItem(key) {
+  if  ( localStorage.getItem(key)) {
+    return JSON.parse(localStorage.getItem(key)) ;
+  }
+  return null;
 }
 
-function saveLocal(key, value) {
-  return localStorage.setItem(key, JSON.stringify(value))
+function setStorageItem(key, value) {
+  return localStorage.setItem(key, JSON.stringify(value));
 }
