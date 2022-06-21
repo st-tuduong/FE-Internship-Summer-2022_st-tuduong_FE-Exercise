@@ -34,30 +34,29 @@ function renderListCart() {
           </td>
         </tr>`;
     })
-    document.querySelector("tbody").innerHTML = html;
-    var btnIncrease = document.querySelectorAll(".quantity-up");
+    document.querySelector('tbody').innerHTML = html;
+    var btnIncrease = document.querySelectorAll('.quantity-up');
     btnIncrease.forEach(function(item){
-      item.addEventListener("click", function(e) {
+      item.addEventListener('click', function(e) {
         doChangeItemQuantity(this, true)
       });
     })
 
     
 
-    var btnDecrease = document.querySelectorAll(".quantity-down");
+    var btnDecrease = document.querySelectorAll('.quantity-down');
     btnDecrease.forEach(function(item){
-      item.addEventListener("click", function(e) {
+      item.addEventListener('click', function(e) {
         doChangeItemQuantity(this, false)
       });
     })
 
-    var btnDelete = document.querySelectorAll(".quantity-delete");
+    var btnDelete = document.querySelectorAll('.quantity-delete');
     btnDelete.forEach(function(item) {
-      item.addEventListener("click", removeProduct);
+      item.addEventListener('click', removeProduct);
     })
 }
 }
-renderListCart();
 
 function doChangeItemQuantity(btn, isIncreased) {
   var id = btn.id
@@ -72,8 +71,8 @@ function doChangeItemQuantity(btn, isIncreased) {
     qty = parseInt(qty) - 1;
   }
   var total = (price * qty).toFixed(2);
-  document.querySelector(".cart-totalprice").innerHTML = "$" + total;
-  document.querySelector(".quantity-input").setAttribute("value", qty);
+  document.querySelector('.cart-totalprice').innerHTML = '$' + total;
+  document.querySelector('.quantity-input').setAttribute('value', qty);
   listCart[id].qty = qty;
   setStorageItem(lsShopping.cart, listCart);
 }
@@ -83,7 +82,9 @@ function removeProduct(id) {
   var listCart = getStorageItem(lsShopping.cart);
   if(listCart[id]) {
     delete listCart[id]
-   this.closest("tr").remove();
+   this.closest('tr').remove();
     setStorageItem(lsShopping.cart, listCart)
   }
 }
+
+renderListCart();
