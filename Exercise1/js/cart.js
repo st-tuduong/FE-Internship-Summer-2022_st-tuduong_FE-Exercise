@@ -4,7 +4,8 @@ function renderListCart() {
   var count = 0;
   if (listCart) {
     Object.keys(listCart).map(function(key) {
-      var price = listCart[key].price.slice(1);
+      var price = listCart[key].price;
+      console.log(price)
       var qty = listCart[key].qty;
       count = price * qty;
       var total = count.toFixed(2);
@@ -63,7 +64,7 @@ function doChangeItemQuantity(btn, isIncreased) {
   var listCart = getStorageItem(lsShopping.cart);
   var cartItem = listCart[id]
   var qty = cartItem.qty
-  var price = cartItem.price.slice(1);
+  var price = cartItem.price;
 
   if (isIncreased) {
     qty = parseInt(qty) + 1;
@@ -71,8 +72,8 @@ function doChangeItemQuantity(btn, isIncreased) {
     qty = parseInt(qty) - 1;
   }
   var total = (price * qty).toFixed(2);
-  document.querySelector('.cart-totalprice').innerHTML = '$' + total;
-  document.querySelector('.quantity-input').setAttribute('value', qty);
+  btn.closest('tr').querySelector('.cart-totalprice').innerHTML = '$' + total
+  btn.closest('tr').querySelector('.quantity-input').setAttribute('value', qty);
   listCart[id].qty = qty;
   setStorageItem(lsShopping.cart, listCart);
 }

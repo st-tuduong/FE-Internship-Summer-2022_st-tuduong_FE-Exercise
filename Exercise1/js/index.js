@@ -82,6 +82,7 @@ function addCart(id) {
     };
   }
   setStorageItem(lsShopping.cart, cart);
+  countQty();
 }
 
 function countQty() {
@@ -89,6 +90,8 @@ function countQty() {
   if (cart) {
     var count = Object.keys(cart).length;
     document.querySelector('.qty').innerHTML = count;
+    setStorageItem(lsShopping.cart, cart);
   }
 }
 renderListProduct();
+countQty();
