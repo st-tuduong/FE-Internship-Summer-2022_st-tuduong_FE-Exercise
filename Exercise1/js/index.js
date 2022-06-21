@@ -60,10 +60,9 @@ function renderListProduct() {
     });
     document.querySelector(".product-list").innerHTML = html;
     var btnAddCart = document.querySelectorAll(".btn-cart");
-    for (i = 0; i < btnAddCart.length; i++) {
-      btnAddCart[i].addEventListener("click", addCart);
-      btnAddCart[i].addEventListener("click", countQty);
-    }
+    btnAddCart.forEach(function(item) {
+      item.addEventListener("click", addCart)
+    })
   }
 }
 renderListProduct();

@@ -36,24 +36,26 @@ function renderListCart() {
     })
     document.querySelector("tbody").innerHTML = html;
     var btnIncrease = document.querySelectorAll(".quantity-up");
-    for (i = 0; i < btnIncrease.length; i++) {
-      btnIncrease[i].addEventListener("click", function(e) {
+    btnIncrease.forEach(function(item){
+      item.addEventListener("click", function(e) {
         doChangeItemQuantity(this, true)
       });
-    }
+    })
+
+    
 
     var btnDecrease = document.querySelectorAll(".quantity-down");
-    for (i = 0; i < btnDecrease.length; i++) {
-      btnDecrease[i].addEventListener("click",  function(e) {
+    btnDecrease.forEach(function(item){
+      item.addEventListener("click", function(e) {
         doChangeItemQuantity(this, false)
       });
-    }
+    })
 
     var btnDelete = document.querySelectorAll(".quantity-delete");
-    for (i = 0; i < btnDelete.length; i++) {
-      btnDelete[i].addEventListener("click", removeProduct);
-    }
-  }
+    btnDelete.forEach(function(item) {
+      item.addEventListener("click", removeProduct);
+    })
+}
 }
 renderListCart();
 
