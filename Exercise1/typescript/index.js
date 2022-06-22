@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-var common_1 = require("./common");
 var products = [
     {
         id: 1,
@@ -39,9 +36,9 @@ var products = [
         price: "89.99"
     },
 ];
-(0, common_1.setStorageItem)(common_1.storageKey.product, products);
-function renderListProduct() {
-    var listProduct = (0, common_1.getStorageItem)(common_1.storageKey.product);
+setStorageItem(storageKey.product, products);
+var renderListProduct = function () {
+    var listProduct = getStorageItem(storageKey.product);
     var html = "";
     if (listProduct) {
         listProduct.forEach(function (item) {
@@ -68,10 +65,10 @@ function renderListProduct() {
             });
         });
     }
-}
-function addCart(id) {
+};
+var addCart = function (id) {
     var product = products.find(function (item) { return item.id.toString() === id; });
-    var cart = (0, common_1.getStorageItem)(common_1.storageKey.cart) || {};
+    var cart = getStorageItem(storageKey.cart) || {};
     if (cart[id]) {
         cart[id].qty += 1;
     }
@@ -84,17 +81,17 @@ function addCart(id) {
             qty: 1
         };
     }
-    (0, common_1.setStorageItem)(common_1.storageKey.cart, cart);
+    setStorageItem(storageKey.cart, cart);
     countQty();
-}
-function countQty() {
-    var cart = (0, common_1.getStorageItem)(common_1.storageKey.cart);
+};
+var countQty = function () {
+    var $countQty = document.querySelector('.qty');
+    var cart = getStorageItem(storageKey.cart);
     if (cart) {
         var count = Object.keys(cart).length;
-        //   const countQty = document.querySelector('.qty') as HTMLElement;
-        //  countQty .innerHTML = count;
-        (0, common_1.setStorageItem)(common_1.storageKey.cart, cart);
+        $countQty.innerHTML = count.toString();
+        setStorageItem(storageKey.cart, cart);
     }
-}
+};
 renderListProduct();
 countQty();

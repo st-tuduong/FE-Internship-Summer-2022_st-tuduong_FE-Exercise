@@ -1,15 +1,13 @@
-"use strict";
-exports.__esModule = true;
-exports.setStorageItem = exports.getStorageItem = exports.storageKey = void 0;
-exports.storageKey = {
+var storageKey = {
     product: 'product',
     cart: 'cart'
 };
 function getStorageItem(key) {
-    return JSON.parse(localStorage.getItem(key) || ' ');
+    if (localStorage.getItem(key)) {
+        return JSON.parse(localStorage.getItem(key));
+    }
+    return null;
 }
-exports.getStorageItem = getStorageItem;
 function setStorageItem(key, value) {
     return localStorage.setItem(key, JSON.stringify(value));
 }
-exports.setStorageItem = setStorageItem;

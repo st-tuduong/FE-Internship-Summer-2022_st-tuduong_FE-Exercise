@@ -1,12 +1,15 @@
-export const storageKey = {
+const storageKey = {
   product: 'product', 
   cart: 'cart'
 };
 
-export function getStorageItem (key : string) {
-    return JSON.parse(localStorage.getItem(key) || ' ');
+function getStorageItem (key: string) {
+  if (localStorage.getItem(key)) {
+    return JSON.parse(localStorage.getItem(key));
   }
+  return null;
+}
 
-  export function setStorageItem (key : string, value : any) {
+function setStorageItem (key: string, value: any) {
     return localStorage.setItem(key, JSON.stringify(value));
   }

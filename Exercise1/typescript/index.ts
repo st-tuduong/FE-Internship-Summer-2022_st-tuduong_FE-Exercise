@@ -1,4 +1,3 @@
-import { storageKey, getStorageItem, setStorageItem } from "./common";
 const products: any = [
   {
     id: 1,
@@ -40,11 +39,11 @@ const products: any = [
 
 setStorageItem(storageKey.product, products);
 
-function renderListProduct() {
+const renderListProduct = () => {
   const listProduct = getStorageItem(storageKey.product);
   let html = "";
   if (listProduct) {
-    listProduct.forEach(function (item : any) {
+    listProduct.forEach(function (item: any) {
       html +=
         "<li class='product-item product-sale col-3 col-sm-6'> " +
           "<div class='product-img'>" +
@@ -62,7 +61,7 @@ function renderListProduct() {
     const productList = document.querySelector(".product-list") as HTMLElement;
     productList.innerHTML = html;
     const btnAddCart = document.querySelectorAll(".btn-cart");
-    btnAddCart.forEach(function (item : any) {
+    btnAddCart.forEach(function (item: any) {
       item.addEventListener("click", function() {
         addCart(item.id);
       });
@@ -70,8 +69,8 @@ function renderListProduct() {
   }
 }
 
-function addCart(id : number) {
-  const product = products.find((item : any) => item.id.toString() === id);
+const addCart = (id: number) => {
+  const product = products.find((item: any) => item.id.toString() === id);
   const cart = getStorageItem(storageKey.cart) || {};
   if (cart[id]) {
     cart[id].qty += 1;
@@ -88,12 +87,12 @@ function addCart(id : number) {
   countQty();
 }
 
-function countQty() {
+const countQty = () =>{
+  let $countQty = document.querySelector('.qty');
   const cart = getStorageItem(storageKey.cart);
   if (cart) {
-    const count = Object.keys(cart).length;
-  //   const countQty = document.querySelector('.qty') as HTMLElement;
-  //  countQty .innerHTML = count;
+    let count = Object.keys(cart).length;
+    $countQty.innerHTML = count.toString();
     setStorageItem(storageKey.cart, cart);
   }
 }
