@@ -13,3 +13,4 @@ function getStorageItem (key: string) {
 function setStorageItem (key: string, value: any) {
     return localStorage.setItem(key, JSON.stringify(value));
   }
+  
