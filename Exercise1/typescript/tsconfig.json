@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5", 
+    "target": "es5",
     "module": "es6",
-    "outDir": ".../typescript",
-    "moduleResolution": "node",
     "watch": true,
-    "allowJs": true,
-    "noImplicitAny": true
+    "outDir": "../javascript",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
   }
 }
