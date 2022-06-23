@@ -2,14 +2,14 @@ export interface Product {
   id: number;
   img: string;
   name: string;
-  price: number;
+  price: string;
 }
 
 export interface Cart {
   id: number;
   img: string;
   name: string;
-  price: number;
+  price: string;
   qty: number;
 }
 
@@ -27,5 +27,5 @@ export const getStorageItem = (key: string) => {
 
 export const setStorageItem = (key: string, value: any) => {
     return localStorage.setItem(key, JSON.stringify(value));
-  }
+  };
   

@@ -1,6 +1,6 @@
-import { getStorageItem, Product, setStorageItem, storageKey } from "./common.js";
+import { Cart, getStorageItem, Product, setStorageItem, storageKey } from "./common.js";
 
-const products = [
+const products : Product[]= [
   {
     id: 1,
     img: 'images/pr1.png',
@@ -54,10 +54,10 @@ const products = [
 setStorageItem(storageKey.PRODUCT, products);
 
 const renderListProduct = () => {
-  const listProduct = getStorageItem(storageKey.PRODUCT);
+  const listProduct : Product[] = getStorageItem(storageKey.PRODUCT);
   let html = ``;
   if (listProduct) {
-    listProduct.forEach(function (item: Product) {
+    listProduct.forEach((item: Product) => {
       html += `<li class='product-item product-sale col-3 col-sm-6'>
                 <div class='product-img'>
                   <img src= '${item.img}' alt='T-Shirt Summer Vibes' />
@@ -74,16 +74,16 @@ const renderListProduct = () => {
     const productList = document.querySelector('.product-list') as HTMLElement;
     productList.innerHTML = html;
     const btnAddCart = document.querySelectorAll('.js-btn-cart');
-    btnAddCart.forEach((item: any) => {
+    btnAddCart.forEach((item: Element) => {
       item.addEventListener('click', () => {
-        addCart(item.id);
+        addCart(+item.id);
       });
     });
   }
 };
 
-const addCart = (id: any) => {
-  const product: Product = products.find((item: Product) => item.id.toString() === id);
+const addCart = (id: number) => {
+  const product: Product = products.find((item: Product) => item.id === id)!;
   const cart = getStorageItem(storageKey.CART) || {};
   if (cart[id]) {
     cart[id].qty += 1;
@@ -102,7 +102,7 @@ const addCart = (id: any) => {
 
 const countQty = () => {
   const countQty = document.querySelector('.qty') as Element;
-  const cart = getStorageItem(storageKey.CART) || {};
+  const cart: Cart[] = getStorageItem(storageKey.CART) || {};
   if (cart) {
     let count: number = Object.keys(cart).length;
     countQty.innerHTML = count.toString();

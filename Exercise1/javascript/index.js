@@ -1,5 +1,5 @@
 import { getStorageItem, setStorageItem, storageKey } from "./common.js";
-var products = [
+const products = [
     {
         id: 1,
         img: 'images/pr1.png',
@@ -50,26 +50,37 @@ var products = [
     },
 ];
 setStorageItem(storageKey.PRODUCT, products);
-var renderListProduct = function () {
-    var listProduct = getStorageItem(storageKey.PRODUCT);
-    var html = "";
+const renderListProduct = () => {
+    const listProduct = getStorageItem(storageKey.PRODUCT);
+    let html = ``;
     if (listProduct) {
-        listProduct.forEach(function (item) {
-            html += "<li class='product-item product-sale col-3 col-sm-6'>\n                <div class='product-img'>\n                  <img src= '".concat(item.img, "' alt='T-Shirt Summer Vibes' />\n                  <div class='product-overlay'>\n                    <button id= '").concat(item.id, "' class='btn btn-primary js-btn-cart'>ADD TO CART</button>\n                  </div>\n                </div>\n                <h4>'").concat(item.name, "'</h4>\n                <div class='item-price'>\n                  <span class='item-current-price'>$'").concat(item.price, "'</span>\n                </div>\n              </li>");
+        listProduct.forEach((item) => {
+            html += `<li class='product-item product-sale col-3 col-sm-6'>
+                <div class='product-img'>
+                  <img src= '${item.img}' alt='T-Shirt Summer Vibes' />
+                  <div class='product-overlay'>
+                    <button id= '${item.id}' class='btn btn-primary js-btn-cart'>ADD TO CART</button>
+                  </div>
+                </div>
+                <h4>'${item.name}'</h4>
+                <div class='item-price'>
+                  <span class='item-current-price'>$'${item.price}'</span>
+                </div>
+              </li>`;
         });
-        var productList = document.querySelector('.product-list');
+        const productList = document.querySelector('.product-list');
         productList.innerHTML = html;
-        var btnAddCart = document.querySelectorAll('.js-btn-cart');
-        btnAddCart.forEach(function (item) {
-            item.addEventListener('click', function () {
-                addCart(item.id);
+        const btnAddCart = document.querySelectorAll('.js-btn-cart');
+        btnAddCart.forEach((item) => {
+            item.addEventListener('click', () => {
+                addCart(+item.id);
             });
         });
     }
 };
-var addCart = function (id) {
-    var product = products.find(function (item) { return item.id.toString() === id; });
-    var cart = getStorageItem(storageKey.CART) || {};
+const addCart = (id) => {
+    const product = products.find((item) => item.id === id);
+    const cart = getStorageItem(storageKey.CART) || {};
     if (cart[id]) {
         cart[id].qty += 1;
     }
@@ -85,11 +96,11 @@ var addCart = function (id) {
     setStorageItem(storageKey.CART, cart);
     countQty();
 };
-var countQty = function () {
-    var countQty = document.querySelector('.qty');
-    var cart = getStorageItem(storageKey.CART) || {};
+const countQty = () => {
+    const countQty = document.querySelector('.qty');
+    const cart = getStorageItem(storageKey.CART) || {};
     if (cart) {
-        var count = Object.keys(cart).length;
+        let count = Object.keys(cart).length;
         countQty.innerHTML = count.toString();
         setStorageItem(storageKey.CART, cart);
     }

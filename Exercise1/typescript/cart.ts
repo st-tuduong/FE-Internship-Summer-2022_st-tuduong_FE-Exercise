@@ -1,7 +1,7 @@
-import { getStorageItem, setStorageItem, storageKey } from "./common.js";
+import { Cart, getStorageItem, setStorageItem, storageKey } from "./common.js";
 
 const renderListCart = () => {
-  const listCart  = getStorageItem(storageKey.CART) || {};
+  const listCart: Cart[]  = getStorageItem(storageKey.CART) || {};
   let html = ``;
   let count = 0;
   if (listCart) {
@@ -39,21 +39,21 @@ const renderListCart = () => {
     const cartList = document.querySelector('tbody') as HTMLElement;
     cartList.innerHTML = html;
     const btnIncrease: any = document.querySelectorAll('.js-quantity-up');
-    btnIncrease.forEach(function(item: any){
+    btnIncrease.forEach((item: Element) => {
       item.addEventListener('click', (e: Event) => {
         doChangeItemQuantity(item, true);
       });
     })
 
     const btnDecrease = document.querySelectorAll('.js-quantity-down');
-    btnDecrease.forEach(function(item){
+    btnDecrease.forEach((item: Element) => {
       item.addEventListener('click', (e) => {
         doChangeItemQuantity(item, false);
       });
     })
 
     const btnDelete = document.querySelectorAll('.js-quantity-delete');
-    btnDelete.forEach(function(item) {
+    btnDelete.forEach((item: Element) => {
       item.addEventListener('click',(e) => {
         removeProduct(item);
       });
@@ -119,7 +119,7 @@ const totalPrice = () => {
   const cartList = getStorageItem(storageKey.CART);
   let total = 0;
   if (cartList) {
-    Object.keys(cartList).map((key) => {
+    Object.keys(cartList).map((key: string) => {
       let price = cartList[key].price;
       let qty = cartList[key].qty;
       let subTotal = (+price *+ qty).toFixed(2);

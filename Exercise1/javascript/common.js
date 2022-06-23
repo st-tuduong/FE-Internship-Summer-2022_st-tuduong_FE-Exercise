@@ -4,12 +4,12 @@ export var storageKey;
     storageKey["CART"] = "cart";
 })(storageKey || (storageKey = {}));
 ;
-export var getStorageItem = function (key) {
+export const getStorageItem = (key) => {
     if (localStorage.getItem(key)) {
         return JSON.parse(localStorage.getItem(key));
     }
     return null;
 };
-export var setStorageItem = function (key, value) {
+export const setStorageItem = (key, value) => {
     return localStorage.setItem(key, JSON.stringify(value));
 };

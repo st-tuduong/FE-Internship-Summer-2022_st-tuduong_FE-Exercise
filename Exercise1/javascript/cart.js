@@ -1,44 +1,68 @@
 import { getStorageItem, setStorageItem, storageKey } from "./common.js";
-var renderListCart = function () {
-    var listCart = getStorageItem(storageKey.CART) || {};
-    var html = "";
-    var count = 0;
+const renderListCart = () => {
+    const listCart = getStorageItem(storageKey.CART) || {};
+    let html = ``;
+    let count = 0;
     if (listCart) {
-        Object.keys(listCart).map(function (key) {
-            var price = listCart[key].price;
-            var qty = listCart[key].qty;
+        Object.keys(listCart).map((key) => {
+            let price = listCart[key].price;
+            let qty = listCart[key].qty;
             count = +price * qty;
-            var total = count.toFixed(2);
-            html += "\n          <tr>\n          <td class='cart-product'>\n            <img src='".concat(listCart[key].img, "' alt=''>\n          </td>\n          <td class='cart-description'>\n            <h4><a>").concat(listCart[key].name, "</a></h4>\n          </td>\n          <td class=''>\n            <p>$").concat(listCart[key].price, "</p>\n          </td>\n          <td class='cart-quantity'>\n            <div class='cart-quantitybutton'>\n              <button id='").concat(listCart[key].id, "' class='js-quantity-down'> - </button>\n                <input class='js-quantity-input' value='").concat(listCart[key].qty, "'>\n              <button id='").concat(listCart[key].id, "' class='js-quantity-up'> + </button>\n            </div>\n          </td>\n          <td class='cart-total'>\n            <p class='js-cart-totalprice'>$").concat(total, "</p>\n          </td>\n          <td class=\"cart-delete\">\n            <button id='").concat(listCart[key].id, "' class='js-quantity-delete'><i class='fa fa-times'></i></button>\n          </td>\n        </tr>");
+            let total = count.toFixed(2);
+            html += `
+          <tr>
+          <td class='cart-product'>
+            <img src='${listCart[key].img}' alt=''>
+          </td>
+          <td class='cart-description'>
+            <h4><a>${listCart[key].name}</a></h4>
+          </td>
+          <td class=''>
+            <p>$${listCart[key].price}</p>
+          </td>
+          <td class='cart-quantity'>
+            <div class='cart-quantitybutton'>
+              <button id='${listCart[key].id}' class='js-quantity-down'> - </button>
+                <input class='js-quantity-input' value='${listCart[key].qty}'>
+              <button id='${listCart[key].id}' class='js-quantity-up'> + </button>
+            </div>
+          </td>
+          <td class='cart-total'>
+            <p class='js-cart-totalprice'>$${total}</p>
+          </td>
+          <td class="cart-delete">
+            <button id='${listCart[key].id}' class='js-quantity-delete'><i class='fa fa-times'></i></button>
+          </td>
+        </tr>`;
         });
-        var cartList = document.querySelector('tbody');
+        const cartList = document.querySelector('tbody');
         cartList.innerHTML = html;
-        var btnIncrease = document.querySelectorAll('.js-quantity-up');
-        btnIncrease.forEach(function (item) {
-            item.addEventListener('click', function (e) {
+        const btnIncrease = document.querySelectorAll('.js-quantity-up');
+        btnIncrease.forEach((item) => {
+            item.addEventListener('click', (e) => {
                 doChangeItemQuantity(item, true);
             });
         });
-        var btnDecrease = document.querySelectorAll('.js-quantity-down');
-        btnDecrease.forEach(function (item) {
-            item.addEventListener('click', function (e) {
+        const btnDecrease = document.querySelectorAll('.js-quantity-down');
+        btnDecrease.forEach((item) => {
+            item.addEventListener('click', (e) => {
                 doChangeItemQuantity(item, false);
             });
         });
-        var btnDelete = document.querySelectorAll('.js-quantity-delete');
-        btnDelete.forEach(function (item) {
-            item.addEventListener('click', function (e) {
+        const btnDelete = document.querySelectorAll('.js-quantity-delete');
+        btnDelete.forEach((item) => {
+            item.addEventListener('click', (e) => {
                 removeProduct(item);
             });
         });
     }
 };
-var doChangeItemQuantity = function (btn, isIncreased) {
-    var id = btn.id;
-    var listCart = getStorageItem(storageKey.CART);
-    var cartItem = listCart[id];
-    var qty = cartItem.qty;
-    var price = cartItem.price;
+const doChangeItemQuantity = (btn, isIncreased) => {
+    const id = btn.id;
+    const listCart = getStorageItem(storageKey.CART);
+    const cartItem = listCart[id];
+    let qty = cartItem.qty;
+    let price = cartItem.price;
     if (isIncreased) {
         qty = parseInt(qty) + 1;
         totalQty();
@@ -56,7 +80,7 @@ var doChangeItemQuantity = function (btn, isIncreased) {
         totalQty();
         totalPrice();
     }
-    var total = (price * qty).toFixed(2);
+    let total = (price * qty).toFixed(2);
     btn.closest('tr').querySelector('.js-cart-totalprice').innerHTML = '$' + total;
     btn.closest('tr').querySelector('.js-quantity-input').setAttribute('value', qty);
     listCart[id].qty = qty;
@@ -64,9 +88,9 @@ var doChangeItemQuantity = function (btn, isIncreased) {
     totalQty();
     totalPrice();
 };
-var removeProduct = function (btnDelete) {
-    var getId = btnDelete.id;
-    var listCart = getStorageItem(storageKey.CART);
+const removeProduct = (btnDelete) => {
+    const getId = btnDelete.id;
+    const listCart = getStorageItem(storageKey.CART);
     if (listCart[getId]) {
         delete listCart[getId];
         btnDelete.closest('tr').remove();
@@ -75,24 +99,24 @@ var removeProduct = function (btnDelete) {
         totalPrice();
     }
 };
-var totalQty = function () {
-    var countQty = document.querySelector('.qty');
-    var cart = getStorageItem(storageKey.CART);
+const totalQty = () => {
+    const countQty = document.querySelector('.qty');
+    const cart = getStorageItem(storageKey.CART);
     if (cart) {
-        var count = Object.keys(cart).length;
+        let count = Object.keys(cart).length;
         countQty.innerHTML = count.toString();
         setStorageItem(storageKey.CART, cart);
     }
 };
-var totalPrice = function () {
-    var elementTotal = document.querySelector('.price-total');
-    var cartList = getStorageItem(storageKey.CART);
-    var total = 0;
+const totalPrice = () => {
+    const elementTotal = document.querySelector('.price-total');
+    const cartList = getStorageItem(storageKey.CART);
+    let total = 0;
     if (cartList) {
-        Object.keys(cartList).map(function (key) {
-            var price = cartList[key].price;
-            var qty = cartList[key].qty;
-            var subTotal = (+price * +qty).toFixed(2);
+        Object.keys(cartList).map((key) => {
+            let price = cartList[key].price;
+            let qty = cartList[key].qty;
+            let subTotal = (+price * +qty).toFixed(2);
             total += +subTotal;
             elementTotal.innerHTML = '$' + total.toFixed(2).toString();
         });
