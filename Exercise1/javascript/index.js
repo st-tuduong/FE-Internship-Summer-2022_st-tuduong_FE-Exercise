@@ -98,7 +98,7 @@ const addCart = (id) => {
 };
 const countQty = () => {
     const countQty = document.querySelector('.qty');
-    const cart = getStorageItem(storageKey.CART) || {};
+    const cart = getStorageItem(storageKey.CART);
     if (cart) {
         let count = Object.keys(cart).length;
         countQty.innerHTML = count.toString();

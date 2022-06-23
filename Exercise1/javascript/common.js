@@ -1,3 +1,4 @@
+;
 export var storageKey;
 (function (storageKey) {
     storageKey["PRODUCT"] = "product";
@@ -6,7 +7,7 @@ export var storageKey;
 ;
 export const getStorageItem = (key) => {
     if (localStorage.getItem(key)) {
-        return JSON.parse(localStorage.getItem(key));
+        return JSON.parse(localStorage.getItem(key) || '');
     }
     return null;
 };

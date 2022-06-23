@@ -3,15 +3,8 @@ export interface Product {
   img: string;
   name: string;
   price: string;
-}
-
-export interface Cart {
-  id: number;
-  img: string;
-  name: string;
-  price: string;
-  qty: number;
-}
+  qty?: number;
+};
 
 export enum storageKey {
   PRODUCT = 'product', 
@@ -20,7 +13,7 @@ export enum storageKey {
 
 export const getStorageItem = (key: string) => {
   if (localStorage.getItem(key)) {
-    return JSON.parse(localStorage.getItem(key)!);
+    return JSON.parse(localStorage.getItem(key) || '');
   }
   return null;
 };

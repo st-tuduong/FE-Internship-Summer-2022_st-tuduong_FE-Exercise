@@ -1,4 +1,5 @@
-import { Cart, getStorageItem, Product, setStorageItem, storageKey } from "./common.js";
+import { getStorageItem, Product, 
+setStorageItem, storageKey } from "./common.js";
 
 const products : Product[]= [
   {
@@ -102,7 +103,7 @@ const addCart = (id: number) => {
 
 const countQty = () => {
   const countQty = document.querySelector('.qty') as Element;
-  const cart: Cart[] = getStorageItem(storageKey.CART) || {};
+  const cart: Product[] = getStorageItem(storageKey.CART);
   if (cart) {
     let count: number = Object.keys(cart).length;
     countQty.innerHTML = count.toString();

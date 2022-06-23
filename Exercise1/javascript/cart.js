@@ -61,32 +61,25 @@ const doChangeItemQuantity = (btn, isIncreased) => {
     const id = btn.id;
     const listCart = getStorageItem(storageKey.CART);
     const cartItem = listCart[id];
-    let qty = cartItem.qty;
-    let price = cartItem.price;
+    let { qty, price } = cartItem;
     if (isIncreased) {
         qty = parseInt(qty) + 1;
-        totalQty();
-        totalPrice();
     }
     else if (qty > 1) {
         qty = parseInt(qty) - 1;
-        totalQty();
-        totalPrice();
     }
     else {
         delete listCart[id];
         btn.closest('tr').remove();
         setStorageItem(storageKey.CART, listCart);
-        totalQty();
-        totalPrice();
     }
     let total = (price * qty).toFixed(2);
-    btn.closest('tr').querySelector('.js-cart-totalprice').innerHTML = '$' + total;
+    btn.closest('tr').querySelector('.js-cart-totalprice').innerHTML = `$` + total;
     btn.closest('tr').querySelector('.js-quantity-input').setAttribute('value', qty);
     listCart[id].qty = qty;
     setStorageItem(storageKey.CART, listCart);
-    totalQty();
-    totalPrice();
+    countQty();
+    countPrice();
 };
 const removeProduct = (btnDelete) => {
     const getId = btnDelete.id;
@@ -95,11 +88,11 @@ const removeProduct = (btnDelete) => {
         delete listCart[getId];
         btnDelete.closest('tr').remove();
         setStorageItem(storageKey.CART, listCart);
-        totalQty();
-        totalPrice();
+        countQty();
+        countPrice();
     }
 };
-const totalQty = () => {
+const countQty = () => {
     const countQty = document.querySelector('.qty');
     const cart = getStorageItem(storageKey.CART);
     if (cart) {
@@ -108,7 +101,7 @@ const totalQty = () => {
         setStorageItem(storageKey.CART, cart);
     }
 };
-const totalPrice = () => {
+const countPrice = () => {
     const elementTotal = document.querySelector('.price-total');
     const cartList = getStorageItem(storageKey.CART);
     let total = 0;
@@ -123,5 +116,5 @@ const totalPrice = () => {
     }
 };
 renderListCart();
-totalQty();
-totalPrice();
+countQty();
+countPrice();
