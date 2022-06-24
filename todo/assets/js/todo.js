@@ -1,5 +1,6 @@
-var btnAdd = document.querySelector('.js-btn-add')
-btnAdd.addEventListener('click', function(e) {
+var formAdd = document.querySelector('.item-todo')
+formAdd.addEventListener('submit', function(e) {
+  e.preventDefault();
   addTodo();
 })
 
