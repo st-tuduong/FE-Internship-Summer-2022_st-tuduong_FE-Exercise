@@ -5,26 +5,26 @@ var btnAdd = document.querySelector('.js-btn-add')
     addTodo();
   })
   
-  function renderTodo() {
-    var getListToDo = JSON.parse(localStorage.getItem('todos'));
-    var html = '';
-    if(getListToDo) {
-      getListToDo.forEach(function(key) {
-        html += "<li class='todo-content'>" + 
-        "<p>"+key.text+"</p>" +
-        "<button id="+key.id+" class='btn btn-primary js-btn-delete'>" +
-          "<i class='fa-solid fa-trash'></i>" +
-        "</button>" +
-        "</li>"
-      })
-      document.querySelector('.list-todo').innerHTML = html;
-    }
-    var btnDelete = document.querySelectorAll('.js-btn-delete')
-    btnDelete.forEach(function(item){
-      item.addEventListener('click', function(e) {
-        removeTodo(e.target.id);
-      })
-    })    
+function renderTodo() {
+  var getListToDo = JSON.parse(localStorage.getItem('todos'));
+  var html = '';
+  if(getListToDo) {
+    getListToDo.forEach(function(key) {
+      html += "<li class='todo-content'>" + 
+      "<p>"+key.text+"</p>" +
+      "<button id="+key.id+" class='btn btn-primary js-btn-delete'>" +
+        "<i class='fa-solid fa-trash'></i>" +
+      "</button>" +
+      "</li>"
+    })
+    document.querySelector('.list-todo').innerHTML = html;
+  }
+  var btnDelete = document.querySelectorAll('.js-btn-delete')
+  btnDelete.forEach(function(item){
+    item.addEventListener('click', function(e) {
+      removeTodo(e.target.id);
+    })
+  })    
 }
 
 function addTodo() {
