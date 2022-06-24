@@ -6,7 +6,7 @@
 
 body {
   color: #333333;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   overflow-x: hidden;
 }
@@ -21,23 +21,19 @@ input {
   border: 0;
 }
 
+.text-todo::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
 .btn {
-  display: inline-block;
-  height: 48px;
-  padding: 14px 20px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #333333;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 50px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .btn-primary {
   background-color: #fbb03b;
-  width: 175px;
-  height: 47px;
-  border-radius: 56px;
+  width: 100px;
 }
 
 .container {
@@ -48,7 +44,7 @@ input {
 }
 
 .todo {
-  background-color: bisque;
+  background-color: darkcyan;
   margin-top: 50px;
   min-height: 500px;
   padding: 20px;
@@ -71,26 +67,19 @@ input {
   border-radius: 5px;
 }
 
-.js-btn-add {
-  width: 30%;
-}
-
 .todo-content {
   display: flex;
-  margin: 30px 17px;
+  margin: 30px 73px;
   justify-content: space-between;
 }
 
 .todo-content p {
-  width: 63%;
+  width: 69%;
   background-color: pink;
   border-radius: 10px;
   font-size: 20px;
   display: flex;
   justify-content: center;
+  padding: 10px;
   align-items: center;
-}
-
-.js-btn-delete {
-  width: 31%;
 }

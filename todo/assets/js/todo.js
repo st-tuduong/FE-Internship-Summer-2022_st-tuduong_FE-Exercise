@@ -12,7 +12,9 @@ var btnAdd = document.querySelector('.js-btn-add')
       getListToDo.forEach(function(key) {
         html += "<li class='todo-content'>" + 
         "<p>"+key.text+"</p>" +
-        "<button id="+key.id+" class='btn btn-primary js-btn-delete'>Delete</button>" +
+        "<button id="+key.id+" class='btn btn-primary js-btn-delete'>" +
+          "<i class='fa-solid fa-trash'></i>" +
+        "</button>" +
         "</li>"
       })
       document.querySelector('.list-todo').innerHTML = html;
