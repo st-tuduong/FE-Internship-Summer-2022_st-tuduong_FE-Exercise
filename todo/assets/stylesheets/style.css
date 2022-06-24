@@ -21,6 +21,16 @@ input {
   border: 0;
 }
 
+.text-todo {
+  width: 69%;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+
 .text-todo::placeholder {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
@@ -61,19 +71,15 @@ input {
   justify-content: space-around;
 }
 
-.text-todo {
-  padding: 20px;
-  width: 60%;
-  border-radius: 5px;
-}
-
-.todo-content {
+.item-todo {
   display: flex;
   margin: 30px 73px;
   justify-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
 }
 
-.todo-content p {
+.content-todo {
   width: 69%;
   background-color: pink;
   border-radius: 10px;
