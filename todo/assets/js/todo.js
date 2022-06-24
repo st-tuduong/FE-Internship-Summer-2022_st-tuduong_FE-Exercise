@@ -4,12 +4,12 @@ btnAdd.addEventListener('click', function(e) {
 })
 
 function addTodo() {
-  var getContent = document.querySelector('.text-todo').value;
+  var inputTodo = document.querySelector('.text-todo').value;
   var storageItem = localStorage.getItem('todos');
   var listTodo = JSON.parse(storageItem) || [];
   var todoItem = {
     id: Date.now(),
-    text: getContent
+    text: inputTodo
   }
   if (listTodo) {
     listTodo.push(todoItem);
@@ -21,14 +21,14 @@ function addTodo() {
 function renderTodoItem(listTodo) {
   var itemTodo = document.createElement('li');
   itemTodo.classList.add('item-todo');
-  var getIdRemove = listTodo.id;
+  var idRemove = listTodo.id;
   var contentTodo = document.createElement('p');
   contentTodo.classList.add('content-todo');
   contentTodo.innerText = listTodo.text;
   var removeBtnTodo = document.createElement('button');
   var listTodo = document.querySelector('.list-todo');
   removeBtnTodo.classList.add('btn', 'btn-primary', 'js-btn-remove-');
-  removeBtnTodo.setAttribute('id',getIdRemove);
+  removeBtnTodo.setAttribute('id',idRemove);
   removeBtnTodo.innerHTML = '<i class="fa-solid fa-trash"></i>';
   removeBtnTodo.addEventListener('click', function() {
     removeTodo(this);
