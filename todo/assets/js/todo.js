@@ -4,18 +4,16 @@ btnAdd.addEventListener('click', function(e) {
 })
 
 function addTodo() {
-  var inputTodo = document.querySelector('.text-todo').value;
+  var valueTodo = document.querySelector('.text-todo').value;
   var storageItem = localStorage.getItem('todos');
   var listTodo = JSON.parse(storageItem) || [];
   var todoItem = {
     id: Date.now(),
-    text: inputTodo
+    text: valueTodo
   }
-  if (listTodo) {
-    listTodo.push(todoItem);
-  }
-    localStorage.setItem('todos', JSON.stringify(listTodo));
-    renderTodoItem(todoItem);
+  listTodo.push(todoItem);
+  localStorage.setItem('todos', JSON.stringify(listTodo));
+  renderTodoItem(todoItem);
   }
 
 function renderTodoItem(listTodo) {
