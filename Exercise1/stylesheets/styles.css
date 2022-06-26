@@ -138,7 +138,8 @@ input {
   }
 }
 header {
-  position: absolute;
+  position: fixed;
+  background-color: cadetblue;
   top: 0;
   left: 0;
   right: 0;
@@ -147,8 +148,13 @@ header {
 }
 
 .header {
-  background-color: bisque;
+  position: fixed;
+  background-color: cadetblue;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 30px 0;
+  z-index: 100;
 }
 
 .nav-menu, .nav-cart {
@@ -563,13 +569,15 @@ header {
 }
 
 .product-view {
-  margin: 48px 0;
+  margin: 60px 0;
   color: #ffffff;
 }
 
 .table-product {
   width: 100%;
+  margin-top: 115px;
   border-spacing: 0;
+  color: #000000;
 }
 
 .table-product > tbody > tr {
@@ -584,7 +592,7 @@ header {
 }
 
 .cart-product {
-  width: 150px;
+  width: 100px;
 }
 
 .cart-product img {
@@ -596,6 +604,10 @@ header {
   text-align: center;
 }
 
+.cart-description a, .cart-price p {
+  color: #000000;
+}
+
 .cart-price {
   width: 200px;
   color: #000000;
@@ -603,7 +615,7 @@ header {
 }
 
 .cart-quantity {
-  width: 200px;
+  width: 236px;
   text-align: center;
 }
 
@@ -801,14 +813,20 @@ header {
   font-size: 30px;
 }
 
-.quantity-down, .quantity-up, .quantity-delete {
-  padding: 10px;
+.js-quantity-down, .js-quantity-up, .js-quantity-delete {
+  padding: 13px;
   color: #000000;
   font-weight: 600;
+  border-radius: 15px;
+  background-color: #fbb03b;
 }
 
-.quantity-input {
+.js-cart-totalprice {
   text-align: center;
+}
+
+.js-quantity-input {
+  width: 15px;
 }
 
 .btn {

@@ -1,5 +1,6 @@
 header {
-  position: absolute;
+  position: fixed;
+  background-color: cadetblue;
   top: 0;
   left: 0;
   right: 0;
@@ -8,8 +9,13 @@ header {
 }
 
 .header {
-  background-color: bisque;
+  position: fixed;
+  background-color: cadetblue;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 30px 0;
+  z-index: 100;
 }
 
 .nav-menu {
